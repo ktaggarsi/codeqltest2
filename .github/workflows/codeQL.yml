@@ -7,19 +7,21 @@ on:
 jobs:
   CodeQL-Build:
     runs-on: ubuntu-latest
-    strategy:
-          fail-fast: false
-          matrix:
-          language: ['javascript', 'python']
-    
-    
-    
 
     permissions:
       # required for all workflows
       security-events: write
       actions: read
       contents: read
+      
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['java', 'javascript'  ]
+        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+        # Learn more about CodeQL language support at https://git.io/codeql-language-support
+    
+    
 
     steps:
       - name: Checkout repository
